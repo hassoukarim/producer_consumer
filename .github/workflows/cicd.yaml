@@ -25,7 +25,7 @@ jobs:
         poetry install
         
     - name: Format
-      run: poetry run black producer_consumer/
+      run: poetry run black producer_consumer_hassou_karim/
 
     - name: Run tests
       run: poetry run pytest
