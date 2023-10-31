@@ -5,7 +5,7 @@ import sys
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../producer_consumer"))
 sys.path.append(root_dir)
 
-from producer_consumer.producer_consumer import ProducerConsumer
+from producer_consumer_hassou_karim.producer_consumer import ProducerConsumer
 
 def test_producer_consumer():
     prod_cons = ProducerConsumer(100, 100_000)
