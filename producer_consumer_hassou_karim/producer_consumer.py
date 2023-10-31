@@ -1,5 +1,5 @@
-from producer import Producer
-from consumer import Consumer
+from .producer import Producer
+from .consumer import Consumer
 from threading import Condition
 import numpy as np
 import pandas as pd
