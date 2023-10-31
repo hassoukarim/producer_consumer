@@ -1,6 +1,8 @@
-from producer_consumer.producer import Producer
-from producer_consumer.consumer import Consumer
+from producer import Producer
+from consumer import Consumer
 from threading import Condition
+import numpy as np
+import pandas as pd
 
 class ProducerConsumer:
     """
@@ -16,3 +18,5 @@ class ProducerConsumer:
         self.consumer.start()
         self.producer.join()
         self.consumer.join()
+        self.consumer.consumed_data = np.vstack(self.consumer.consumed_data)
+        self.consumer.consumed_data = pd.DataFrame(self.consumer.consumed_data, columns=["product_id", "ask_quantity", "ask_price", "sell_quantity", "sell_price"])
