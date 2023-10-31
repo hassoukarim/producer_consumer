@@ -2,7 +2,7 @@ import numpy as np
 import os
 import sys
 
-root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../producer_consumer"))
+root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../producer_consumer_hassou_karim"))
 sys.path.append(root_dir)
 
 from producer_consumer_hassou_karim.producer_consumer import ProducerConsumer
