@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,6 +23,35 @@ jobs:
         python -m pip install --upgrade pip
         pip install poetry
         poetry install
+        
+    - name: Format
+      run: black producer_consumer/
 
     - name: Run tests
       run: poetry run pytest
+  
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    environment:
+      name: hassou karim python package
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.11
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install poetry
+    
+    - name: Run tests
+      run: |
+        poetry build
+        poetry config pypi-token.pypi ${{secrets.POETRY_PYPI_TOKEN}}
+        poetry publish
+
