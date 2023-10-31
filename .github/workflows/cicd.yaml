@@ -3,7 +3,7 @@ name: Producer consumer CICD
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
